@@ -1,0 +1,26 @@
+.card-container {
+    background-color: #ebebeb;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+}
+
+.title-container {
+    display: flex;
+}
+
+.title-container:hover {
+    cursor: pointer;
+}
+
+.title-container h2 {
+    margin-left: 1rem;
+}
+
+.title-container img:last-child {
+    margin-left: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
