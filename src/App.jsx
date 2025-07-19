@@ -14,14 +14,19 @@ function App() {
       linkedin: '',
   })
 
+  const [education, setEducation] = useState([]);
+
   return (
     <>
       <Header />
       <div className='resume-container'>
         <ResumeInputs
-          setProfile={setProfile} />
+          setProfile={setProfile}
+          education={education}
+          setEducation={setEducation} />
         <ResumePreview
-          profile={profile} />
+          profile={profile}
+          education={education} />
       </div>
     </>
   )

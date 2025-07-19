@@ -1,13 +1,13 @@
-import { useState } from 'react'
-
-export default function Input() {
-  const [value, setValue] = useState('');
-
+export default function Input({label, type, value, handleChange}) {
   return (
-    <input
-      type='text'
-      value={value}
-      onChange={(event) => setValue(event.target.value)}
-    />
+    <div>
+      <label htmlFor={label}>{label[0].toUpperCase() + label.slice(1)}</label>
+      <input
+        id={label}
+        type={type}
+        value={value}
+        onChange={(e) => handleChange(label, e.target.value)}
+      />
+    </div>
   );
 }
