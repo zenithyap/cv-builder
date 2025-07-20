@@ -35,52 +35,6 @@ export default function EducationCard({
     );
   }
 
-  function handleAddDetail(id) {
-    setEducation((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              details: [
-                ...item.details,
-                {
-                  id: crypto.randomUUID(),
-                  text: "",
-                },
-              ],
-            }
-          : item
-      )
-    );
-  }
-
-  function handleDeleteDetail(entryId, detailId) {
-    setEducation(prev => 
-      prev.map(item =>
-        item.id === entryId
-          ? {...item,
-            details: item.details.filter(detail => detail.id != detailId)
-          }
-          : item
-      )
-    )
-  }
-
-  function handleDetailChange(entryId, detailId, value) {
-    setEducation((prev) =>
-      prev.map((item) =>
-        item.id === entryId
-          ? {
-              ...item,
-              details: item.details.map((detail) =>
-                detail.id === detailId ? { ...detail, text: value } : detail
-              ),
-            }
-          : item
-      )
-    );
-  }
-
   return (
     <InputCard
       icon={educationIcon}
@@ -125,11 +79,9 @@ export default function EducationCard({
               <MultipleInputs
                 label="details"
                 value={entry.details}
-                handleAddDetail={() => handleAddDetail(entry.id)}
-                handleDeleteDetail={(detailId) => handleDeleteDetail(entry.id, detailId)}
-                handleDetailChange={(detailId, value) =>
-                  handleDetailChange(entry.id, detailId, value)
-                }
+                data={education}
+                setData={setEducation}
+                parentId={entry.id}
               />
 
               <button onClick={() => handleDeleteEducation(entry)}>

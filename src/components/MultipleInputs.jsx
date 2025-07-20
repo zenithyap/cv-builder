@@ -1,15 +1,62 @@
 export default function MultipleInputs({
   label,
   value,
-  handleAddDetail,
-	handleDeleteDetail,
-  handleDetailChange,
+  data,
+  setData,
+  parentId,
 }) {
+  function handleAdd() {
+    setData((prev) =>
+      prev.map((item) =>
+        item.id === parentId
+          ? {
+              ...item,
+              [label]: [
+                ...item[label],
+                {
+                  id: crypto.randomUUID(),
+                  text: "",
+                },
+              ],
+            }
+          : item
+      )
+    );
+  }
+
+  function handleDelete(detailId) {
+    setData((prev) =>
+      prev.map((item) =>
+        item.id === parentId
+          ? {
+              ...item,
+              details: item.details.filter((detail) => detail.id != detailId),
+            }
+          : item
+      )
+    );
+  }
+
+  function handleChange(detailId, value) {
+    setData((prev) =>
+      prev.map((item) =>
+        item.id === parentId
+          ? {
+              ...item,
+              details: item.details.map((detail) =>
+                detail.id === detailId ? { ...detail, text: value } : detail
+              ),
+            }
+          : item
+      )
+    );
+  }
+
   return (
     <div>
       <fieldset>
         <legend>{label}</legend>
-        <button onClick={handleAddDetail}>Add Detail</button>
+        <button onClick={handleAdd}>Add Detail</button>
         <ul>
           {value.map((entry) => {
             return (
@@ -17,9 +64,9 @@ export default function MultipleInputs({
                 <input
                   type="text"
                   value={entry.text}
-                  onChange={(e) => handleDetailChange(entry.id, e.target.value)}
+                  onChange={(e) => handleChange(entry.id, e.target.value)}
                 />
-								<button onClick={() => handleDeleteDetail(entry.id)}>Delete</button>
+                <button onClick={() => handleDelete(entry.id)}>Delete</button>
               </li>
             );
           })}
