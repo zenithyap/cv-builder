@@ -2,12 +2,15 @@ import { useState } from "react";
 import "../styles/resumeInputs.css";
 import ProfileCard from "./ProfileCard";
 import EducationCard from "./EducationCard";
+import ExperienceCard from "./ExperienceCard";
 
 export default function ResumeInputs({
   profile,
   setProfile,
   education,
   setEducation,
+  experience,
+  setExperience
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -24,6 +27,12 @@ export default function ResumeInputs({
         setActiveIndex={setActiveIndex}
         education={education}
         setEducation={setEducation}
+      />
+      <ExperienceCard
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        experience={experience}
+        setExperience={setExperience}
       />
     </div>
   );

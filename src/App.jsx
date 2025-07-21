@@ -15,6 +15,7 @@ function App() {
   })
 
   const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
 
   return (
     <>
@@ -23,10 +24,13 @@ function App() {
         <ResumeInputs
           setProfile={setProfile}
           education={education}
-          setEducation={setEducation} />
+          setEducation={setEducation}
+          experience={experience}
+          setExperience={setExperience} />
         <ResumePreview
           profile={profile}
-          education={education} />
+          education={education}
+          experience={experience} />
       </div>
     </>
   )
