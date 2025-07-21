@@ -56,12 +56,13 @@ export default function MultipleInputs({
     <div>
       <fieldset>
         <legend>{label}</legend>
-        <button onClick={handleAdd}>Add Detail</button>
+        <button type='button' onClick={handleAdd}>Add Detail</button>
         <ul>
           {value.map((entry) => {
             return (
               <li key={entry.id}>
                 <input
+                  id={entry.id}
                   type="text"
                   value={entry.text}
                   onChange={(e) => handleChange(entry.id, e.target.value)}
