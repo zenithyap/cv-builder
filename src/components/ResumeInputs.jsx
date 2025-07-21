@@ -3,6 +3,7 @@ import "../styles/resumeInputs.css";
 import ProfileCard from "./ProfileCard";
 import EducationCard from "./EducationCard";
 import ExperienceCard from "./ExperienceCard";
+import ProjectsCard from "./ProjectsCard";
 
 export default function ResumeInputs({
   profile,
@@ -10,7 +11,9 @@ export default function ResumeInputs({
   education,
   setEducation,
   experience,
-  setExperience
+  setExperience,
+  projects,
+  setProjects,
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -33,6 +36,12 @@ export default function ResumeInputs({
         setActiveIndex={setActiveIndex}
         experience={experience}
         setExperience={setExperience}
+      />
+      <ProjectsCard 
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        projects={projects}
+        setProjects={setProjects}
       />
     </div>
   );
