@@ -1,14 +1,16 @@
 import InputCard from "./InputCard";
+import Input from "./Input";
 
 import profileIcon from "../assets/profile.svg";
 
 export default function ProfileCard({
   activeIndex,
   setActiveIndex,
+  profile,
   setProfile,
 }) {
-  function handleChange(e, key) {
-    setProfile((prev) => ({ ...prev, [key]: e.target.value }));
+  function handleChange(key, value) {
+    setProfile((prev) => ({ ...prev, [key]: value }));
   }
 
   return (
@@ -18,35 +20,35 @@ export default function ProfileCard({
       isActive={activeIndex === 0}
       onShow={() => setActiveIndex(0)}
     >
-      <label htmlFor="name">name</label>
-      <input type="text" id="name" onChange={(e) => handleChange(e, "name")} />
-
-      <label htmlFor="email">Email</label>
-      <input
+      <Input
+        label="name"
+        type="text"
+        value={profile.name}
+        handleChange={handleChange}
+      />
+      <Input
+        label="email"
         type="email"
-        id="email"
-        onChange={(e) => handleChange(e, "email")}
+        value={profile.email}
+        handleChange={handleChange}
       />
-
-      <label htmlFor="portfolio">Portfolio</label>
-      <input
+      <Input
+        label="portfolio"
         type="text"
-        id="portfolio"
-        onChange={(e) => handleChange(e, "portfolio")}
+        value={profile.portfolio}
+        handleChange={handleChange}
       />
-
-      <label htmlFor="github">Github</label>
-      <input
+      <Input
+        label="github"
         type="text"
-        id="github"
-        onChange={(e) => handleChange(e, "github")}
+        value={profile.github}
+        handleChange={handleChange}
       />
-
-      <label htmlFor="linkedin">LinkedIn</label>
-      <input
+      <Input
+        label="linkedin"
         type="text"
-        id="linkedin"
-        onChange={(e) => handleChange(e, "linkedin")}
+        value={profile.linkedin}
+        handleChange={handleChange}
       />
     </InputCard>
   );

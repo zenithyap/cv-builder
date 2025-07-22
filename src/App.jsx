@@ -23,6 +23,7 @@ function App() {
       <Header />
       <div className="resume-container">
         <ResumeInputs
+          profile={profile}
           setProfile={setProfile}
           education={education}
           setEducation={setEducation}
