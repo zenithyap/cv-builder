@@ -1,4 +1,4 @@
-import '../styles/profileCard.css';
+import "../styles/profileCard.css";
 import InputCard from "./InputCard";
 import Input from "./Input";
 
@@ -26,6 +26,12 @@ export default function ProfileCard({
           label="name"
           type="text"
           value={profile.name}
+          handleChange={handleChange}
+        />
+        <Input
+          label="phone"
+          type="tel"
+          value={profile.phone}
           handleChange={handleChange}
         />
         <Input
