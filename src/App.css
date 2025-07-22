@@ -1,5 +1,5 @@
 .resume-container {
     display: grid;
     height: calc(100vh - 80px);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
 }

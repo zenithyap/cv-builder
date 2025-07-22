@@ -1,3 +1,4 @@
+import '../styles/profileCard.css';
 import InputCard from "./InputCard";
 import Input from "./Input";
 
@@ -20,36 +21,38 @@ export default function ProfileCard({
       isActive={activeIndex === 0}
       onShow={() => setActiveIndex(0)}
     >
-      <Input
-        label="name"
-        type="text"
-        value={profile.name}
-        handleChange={handleChange}
-      />
-      <Input
-        label="email"
-        type="email"
-        value={profile.email}
-        handleChange={handleChange}
-      />
-      <Input
-        label="portfolio"
-        type="text"
-        value={profile.portfolio}
-        handleChange={handleChange}
-      />
-      <Input
-        label="github"
-        type="text"
-        value={profile.github}
-        handleChange={handleChange}
-      />
-      <Input
-        label="linkedin"
-        type="text"
-        value={profile.linkedin}
-        handleChange={handleChange}
-      />
+      <div className="profile-inputs-container">
+        <Input
+          label="name"
+          type="text"
+          value={profile.name}
+          handleChange={handleChange}
+        />
+        <Input
+          label="email"
+          type="email"
+          value={profile.email}
+          handleChange={handleChange}
+        />
+        <Input
+          label="portfolio"
+          type="text"
+          value={profile.portfolio}
+          handleChange={handleChange}
+        />
+        <Input
+          label="github"
+          type="text"
+          value={profile.github}
+          handleChange={handleChange}
+        />
+        <Input
+          label="linkedin"
+          type="text"
+          value={profile.linkedin}
+          handleChange={handleChange}
+        />
+      </div>
     </InputCard>
   );
 }

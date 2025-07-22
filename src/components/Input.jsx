@@ -1,6 +1,8 @@
+import '../styles/input.css';
+
 export default function Input({label, type, value, handleChange}) {
   return (
-    <div>
+    <div className='input'>
       <label htmlFor={label}>{label[0].toUpperCase() + label.slice(1)}</label>
       <input
         id={label}
