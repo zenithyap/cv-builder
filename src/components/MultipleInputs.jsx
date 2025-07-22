@@ -1,3 +1,7 @@
+import "../styles/multipleInputs.css";
+
+import trash from "../assets/trash.svg";
+
 export default function MultipleInputs({
   label,
   value,
@@ -55,8 +59,10 @@ export default function MultipleInputs({
   return (
     <div>
       <fieldset>
-        <legend>{label}</legend>
-        <button type='button' onClick={handleAdd}>Add Detail</button>
+        <div className="inline-container">
+          <legend>{label[0].toUpperCase() + label.slice(1)}</legend>
+          <button type='button' onClick={handleAdd}>Add Detail</button>
+        </div>
         <ul>
           {value.map((entry) => {
             return (
@@ -67,7 +73,9 @@ export default function MultipleInputs({
                   value={entry.text}
                   onChange={(e) => handleChange(entry.id, e.target.value)}
                 />
-                <button onClick={() => handleDelete(entry.id)}>Delete</button>
+                <button className='delete-btn' onClick={() => handleDelete(entry.id)}>
+                  <img src={trash} alt="" />
+                </button>
               </li>
             );
           })}

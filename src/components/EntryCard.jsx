@@ -1,3 +1,4 @@
+import "../styles/entryCard.css";
 import Input from "./Input";
 import MultipleInputs from "./MultipleInputs";
 
@@ -62,12 +63,12 @@ export default function EntryCard({
                   );
                 }
               })}
-              <button onClick={() => handleDelete(entry.id)}>Delete</button>
+              <button className='delete-entry-btn' onClick={() => handleDelete(entry.id)}>Delete Entry</button>
             </form>
           );
         })}
       </div>
-      <button onClick={handleAdd}>Add</button>
+      <button className='add-entry-btn' onClick={handleAdd}>Add Entry</button>
     </>
   );
 }
