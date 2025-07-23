@@ -3,4 +3,10 @@
     height: 80px;
     padding-inline: 3rem;
     align-items: center;
+    justify-content: space-between;
+}
+
+.header button {
+    font-size: 1rem;
+    border: 2px solid #000;
 }

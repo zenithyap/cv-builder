@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ResumeInputs from "./components/ResumeInputs";
 import ResumePreview from "./components/ResumePreview";
 
+import html2pdf from "html2pdf.js";
+
 function App() {
+  const pdfRef = useRef();
   const [profile, setProfile] = useState({
     name: "",
     phone: "",
@@ -18,9 +21,14 @@ function App() {
   const [experience, setExperience] = useState([]);
   const [projects, setProjects] = useState([]);
 
+  function handleDownload() {
+    const pdf = pdfRef.current;
+    html2pdf().from(pdf).save();
+  }
+
   return (
     <>
-      <Header />
+      <Header handleDownload={handleDownload} />
       <div className="resume-container">
         <ResumeInputs
           profile={profile}
@@ -33,6 +41,7 @@ function App() {
           setProjects={setProjects}
         />
         <ResumePreview
+          pdfRef={pdfRef}
           profile={profile}
           education={education}
           experience={experience}

@@ -15,13 +15,14 @@ const linkLabels = [
 ];
 
 export default function ResumePreview({
+  pdfRef,
   profile,
   education,
   experience,
   projects,
 }) {
   return (
-    <div className="resume-preview">
+    <div ref={pdfRef} className="resume-preview">
       <h1 className="name">{profile.name}</h1>
       <div className="links-container">
         {linkLabels.map((label) => {
