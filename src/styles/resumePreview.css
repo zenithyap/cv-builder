@@ -1,7 +1,49 @@
 .resume-preview {
-    padding-inline: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-inline: 1.5rem 3rem;
+    padding: 20px 50px;
     height: calc(100vh - 100px);
     overflow-y: auto;
+    box-shadow: 0px 0px 10px 2px #ececec
+}
+
+.name {
+    text-align: center;
+}
+
+section {
+    margin-top: 20px;
+    
+}
+
+.section-title {
+    border-bottom: 3px solid #000;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.date-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-preview-list {
+    margin-left: 2rem;
 }
 
 li {
