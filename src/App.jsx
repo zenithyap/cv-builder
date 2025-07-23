@@ -23,7 +23,23 @@ function App() {
 
   function handleDownload() {
     const pdf = pdfRef.current;
-    html2pdf().from(pdf).save();
+
+    const opt = {
+      margin: 0.5,
+      filename: "high-quality.pdf",
+      image: { type: "jpeg", quality: 1 },
+      html2canvas: {
+        scale: 5,
+        useCORS: true,
+      },
+      jsPDF: {
+        unit: "in",
+        format: "letter",
+        orientation: "portrait",
+      },
+    };
+
+    html2pdf().set(opt).from(pdf).save();
   }
 
   return (
