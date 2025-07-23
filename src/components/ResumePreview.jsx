@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
     gap: "5px",
   },
   page: {
+    paddingInline: "1.5rem 3rem",
+    height: "calc(100vh - 100px)",
+    overflowY: 'auto',
     flexDirection: "column",
   },
   section: {
@@ -33,16 +36,33 @@ const styles = StyleSheet.create({
     padding: 10,
     flexGrow: 1,
   },
+  sectionTitle: {
+    display: "flex",
+    fontWeight: "bold",
+    fontSize: "1.2rem",
+    borderBottom: "3px solid black",
+  },
+  titleDateRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    fontWeight: "bold",
+  },
+  list: {
+    marginLeft: "1.5rem",
+  },
+  bold: {
+    fontWeight: "bold",
+  },
 });
 
 export default function ResumePreview({
   profile,
   education,
   experience,
-  project,
+  projects,
 }) {
   return (
-    <Document>
+    <Document style={styles.page}>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.name}>{profile.name}</Text>
@@ -86,6 +106,65 @@ export default function ResumePreview({
               </a>
             </Text>
           )}
+        </View>
+        <View style={styles.section}>
+          {education.length > 0 && <Text style={styles.sectionTitle}>Education</Text>}
+          {education.map((entry) => (
+            <View>
+              <View style={styles.titleDateRow}>
+                <Text>{entry.school}</Text>
+                <Text>
+                  {entry.from && <Text>{entry.from} - </Text>} {entry.to}
+                </Text>
+              </View>
+              <Text style={styles.bold}>{entry.qualifications}</Text>
+              <ul style={styles.list}>
+                {entry.details.map((detail) => (
+                  <Text>
+                    <li>{detail.text}</li>
+                  </Text>
+                ))}
+              </ul>
+            </View>
+          ))}
+        </View>
+        <View style={styles.section}>
+          {experience.length > 0 && <Text style={styles.sectionTitle}>Work Experience</Text>}
+          {experience.map((entry) => (
+            <View>
+              <View style={styles.titleDateRow}>
+                <Text>{entry.company}</Text>
+                <Text>
+                  {entry.from && <Text>{entry.from} - </Text>} {entry.to}
+                </Text>
+              </View>
+              <Text style={styles.bold}>{entry.position}</Text>
+              <ul style={styles.list}>
+                {entry.details.map((detail) => (
+                  <Text>
+                    <li>{detail.text}</li>
+                  </Text>
+                ))}
+              </ul>
+            </View>
+          ))}
+        </View>
+        <View style={styles.section}>
+          {projects.length > 0 && <Text style={styles.sectionTitle}>Projects</Text>}
+          {projects.map((entry) => (
+            <View>
+              <View style={styles.titleDateRow}>
+                <Text>{entry.name}</Text>
+              </View>
+              <ul style={styles.list}>
+                {entry.details.map((detail) => (
+                  <Text>
+                    <li>{detail.text}</li>
+                  </Text>
+                ))}
+              </ul>
+            </View>
+          ))}
         </View>
       </Page>
     </Document>

@@ -63,7 +63,7 @@ export default function MultipleInputs({
           <legend>{label[0].toUpperCase() + label.slice(1)}</legend>
           <button type='button' onClick={handleAdd}>Add Detail</button>
         </div>
-        <ul>
+        <ul className='entry-list'>
           {value.map((entry) => {
             return (
               <li key={entry.id}>

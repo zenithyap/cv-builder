@@ -13,7 +13,7 @@ ul input {
     flex-grow: 1;
 }
 
-li {
+.entry-list li {
     display: flex;
     margin-top: 1rem;
 }
