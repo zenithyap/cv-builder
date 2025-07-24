@@ -65,6 +65,9 @@ li {
         width: auto;
         overflow-y: visible;
         height: auto;
+    }
+
+    .resume-preview-container {
         margin-inline: 1rem;
     }
 }
