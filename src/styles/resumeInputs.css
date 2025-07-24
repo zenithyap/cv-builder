@@ -7,3 +7,12 @@
     overflow-y: auto;
     min-width: 400px;
 }
+
+@media (max-width: 700px) {
+    .resume-inputs {
+        width: auto;
+        overflow-y: visible;
+        height: auto;
+        padding-inline: 1rem;
+    }
+}

@@ -3,3 +3,10 @@
     height: calc(100vh - 80px);
     grid-template-columns: 1fr 2fr;
 }
+
+@media (max-width: 700px) {
+    .resume-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

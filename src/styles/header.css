@@ -10,3 +10,9 @@
     font-size: 1rem;
     border: 2px solid #000;
 }
+
+@media (max-width: 700px) {
+    .header {
+        padding-inline: 1rem;
+    }
+}
