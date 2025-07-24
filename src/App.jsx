@@ -25,16 +25,15 @@ function App() {
     const pdf = pdfRef.current;
 
     const opt = {
-      margin: 0.5,
-      filename: "high-quality.pdf",
+      filename: "resume.pdf",
       image: { type: "jpeg", quality: 1 },
       html2canvas: {
         scale: 5,
         useCORS: true,
       },
       jsPDF: {
-        unit: "in",
-        format: "letter",
+        unit: "mm",
+        format: "a4",
         orientation: "portrait",
       },
     };
