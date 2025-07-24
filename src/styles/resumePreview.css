@@ -1,11 +1,20 @@
+.resume-preview-container {
+    margin-inline: 1.5rem 3rem;
+}
+
 .resume-preview {
     display: flex;
     flex-direction: column;
-    margin-inline: 1.5rem 3rem;
     padding: 20px 50px;
-    height: calc(100vh - 100px);
-    overflow-y: auto;
     box-shadow: 0px 0px 10px 2px #ececec
+}
+
+.resume-preview h2 {
+    font-size: 1.1rem;
+}
+
+p, a, li {
+    font-size: 1rem;
 }
 
 .name {

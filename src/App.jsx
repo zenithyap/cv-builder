@@ -36,6 +36,7 @@ function App() {
         format: "a4",
         orientation: "portrait",
       },
+      pagebreak: { mode: ["avoid-all", "css", "legacy"] },
     };
 
     html2pdf().set(opt).from(pdf).save();

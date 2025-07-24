@@ -16,6 +16,7 @@ ul input {
 .entry-list li {
     display: flex;
     margin-top: 1rem;
+
 }
 
 .delete-btn {
